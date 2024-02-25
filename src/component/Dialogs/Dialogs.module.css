@@ -1,0 +1,28 @@
+.dialogsPage {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+    cursor: pointer;
+    background: #f5f5f5;
+}
+.dialogs {
+    padding: 10px;
+}
+.dialogs .active {
+    color: brown;
+
+}
+
+.messages {
+    padding: 10px;
+}
+.messages .message {
+
+}
+.btn {
+    width: 80px;
+    height: 20px;
+}
+
+.btn12 {
+    padding-left: 5px;
+}
