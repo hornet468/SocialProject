@@ -1,20 +1,19 @@
 .navbar {
-grid-area: n;
-background:#13274F;
-padding: 10px;
+  grid-area: n;
+  background: royalblue;
+  padding: 10px;
 }
 
-.item a:focus  {
-	color: white;
-	
+.item a:focus {
+  color: white;
 }
 .item a {
-	color: gray;
-	text-decoration: none;
+  color: #000000;
+  text-decoration: none;
 }
 
 .userIcon {
-	width: 20px;
-	border-radius: 32px;
-	margin: 5px;
+  width: 20px;
+  border-radius: 32px;
+  margin: 5px;
 }
