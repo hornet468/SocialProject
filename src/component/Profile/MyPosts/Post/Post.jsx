@@ -1,18 +1,20 @@
 import React from "react";
 import classes from "./Post.module.css";
+import UserPhoto from "../../../../assets/UserPhoto.png";
+import like from "../../../../assets/like.png";
 
 const Post = (props) => {
   return (
-    <div>
+    <div className={classes.wrapper}>
       <div>
-        <img
-          className={classes.icon}
-          alt="pho"
-          src="https://th.bing.com/th/id/OIP.e1KNYwnuhNwNj7_-98yTRwHaF7?rs=1&pid=ImgDetMain"
-        />
+        <img className={classes.icon} alt="pho" src={UserPhoto} />
       </div>
-      <div className={classes.post}>{props.message}</div>
-      <span>like {props.LikeCount}</span>
+      <div className={classes.container}>
+        <div className={classes.post}>{props.message}</div>
+      </div>
+      <span>
+        <img className={classes.Like} src={like} /> {props.LikeCount}
+      </span>
     </div>
   );
 };

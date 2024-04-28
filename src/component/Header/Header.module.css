@@ -1,8 +1,12 @@
-header {
+.header {
   grid-area: h;
-  background: royalblue;
+  background: #43297f;
 }
 
 .header img {
   width: 20px;
+}
+.login {
+  color: aqua;
+  float: right;
 }

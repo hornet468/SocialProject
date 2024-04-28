@@ -2,7 +2,8 @@
   display: grid;
   grid-template-columns: 2fr 10fr;
   cursor: pointer;
-  background: #f5f5f5;
+  background: #2c3646;
+  color: #ffff;
 }
 .dialogs {
   padding: 10px;

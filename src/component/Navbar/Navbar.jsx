@@ -6,13 +6,18 @@ const Navbar = () => {
   return (
     <nav className={classes.navbar}>
       <div className={classes.item}>
-        <NavLink to="/profile" activeClassName={classes.active}>
+        <NavLink to="/profile/" activeClassName={classes.active}>
           Profile
         </NavLink>
       </div>
-      <div className={`${classes.item} ${classes.active}`}>
+      <div className={classes.item + " " + classes.active}>
         <NavLink to="/dialogs" activeClassName={classes.active}>
           Messages
+        </NavLink>
+      </div>
+      <div className={classes.item}>
+        <NavLink to="/users/" activeClassName={classes.active}>
+          Users
         </NavLink>
       </div>
       <div className={classes.item}>
@@ -46,16 +51,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-{
-  /*<nav>
-            <ul>
-                <li>
-                    <button onClick={() => onPageChange('Profile')}>Profile</button>
-                </li>
-                <li>
-                    <button onClick={() => onPageChange('Dialogs')}>Dialogs</button>
-                </li>
-            </ul>
-</nav>*/
-}
