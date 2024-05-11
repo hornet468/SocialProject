@@ -1,21 +1,25 @@
 import React, { useEffect } from "react";
 import classes from "./Profile.module.css";
 import Profile from "./Profile";
-import axios from "axios";
 import { connect } from "react-redux";
-import { setUserProfile } from "../../redux/profileReducer";
+import { getUserProfile } from "../../redux/profileReducer";
 import { useParams } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
+import { compose } from "redux";
 
 const ProfileContainer = (props) => {
   const { userId } = useParams();
 
   useEffect(() => {
-    axios
-      .get("https://social-network.samuraijs.com/api/1.0/profile/" + userId)
-      .then((response) => {
-        props.setUserProfile(response.data);
-      });
+    if (userId) {
+      props.getUserProfile(userId);
+    }
   }, [userId]);
+
+  if (!userId && !props.isAuth) {
+    return <Navigate to="/login" />; // Перенаправити на сторінку логіну, якщо немає userId і користувач не авторизований
+  }
 
   return (
     <div className={classes.content}>
@@ -23,9 +27,13 @@ const ProfileContainer = (props) => {
     </div>
   );
 };
-
-let mapStateToProps = (state) => ({
+const mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
 });
 
-export default connect(mapStateToProps, { setUserProfile })(ProfileContainer);
+let AuthRedirectComponent = withAuthRedirect(Profile);
+
+export default compose(
+  connect(mapStateToProps, { getUserProfile }),
+  withAuthRedirect
+)(ProfileContainer);
