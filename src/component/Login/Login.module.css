@@ -1,0 +1,10 @@
+.formWrapper {
+  padding-left: 50px;
+}
+h1 {
+  padding-left: 50px;
+}
+.wrapper,
+.loginWrapper {
+  background: #d0d0d0;
+}

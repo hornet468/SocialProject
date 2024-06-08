@@ -1,6 +1,7 @@
 .content {
+  border-radius: 5px;
   grid-area: c;
-  background: #2c3646;
+  background: #d0d0d0;
   color: #ffff;
 }
 .toggle {

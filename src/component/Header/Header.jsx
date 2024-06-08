@@ -7,17 +7,20 @@ const Header = (props) => {
     <div className={classes.header}>
       <div className={classes.login}>
         {props.isAuth ? (
-          props.login
+          <div>
+            {" "}
+            {props.login}{" "}
+            <button className={classes.btn} onClick={props.logout}>
+              log out
+            </button>
+          </div>
         ) : (
           <NavLink to="/login">
             <img src="https://static.vecteezy.com/system/resources/previews/000/575/347/original/vector-login-sign-icon.jpg" />
           </NavLink>
         )}
       </div>
-      <img
-        alt="hed"
-        src="https://th.bing.com/th/id/OIP.nFhrod_FDgL2sHtuRQyAOwHaHe?rs=1&pid=ImgDetMain"
-      />
+      <h2>Social Media</h2>
     </div>
   );
 };

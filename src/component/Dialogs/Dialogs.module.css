@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 2fr 10fr;
   cursor: pointer;
-  background: #2c3646;
+  background: #d0d0d0;
   color: #ffff;
 }
 .dialogs {

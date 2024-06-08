@@ -2,7 +2,11 @@ import React, { useEffect } from "react";
 import classes from "./Profile.module.css";
 import Profile from "./Profile";
 import { connect } from "react-redux";
-import { getUserProfile } from "../../redux/profileReducer";
+import {
+  getUserProfile,
+  getStatus,
+  updateStatus,
+} from "../../redux/profileReducer";
 import { useParams } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
@@ -14,26 +18,31 @@ const ProfileContainer = (props) => {
   useEffect(() => {
     if (userId) {
       props.getUserProfile(userId);
+      props.getStatus(userId);
     }
   }, [userId]);
 
   if (!userId && !props.isAuth) {
-    return <Navigate to="/login" />; // Перенаправити на сторінку логіну, якщо немає userId і користувач не авторизований
+    return <Navigate to="/login" />;
   }
 
   return (
     <div className={classes.content}>
-      <Profile {...props} profile={props.profile} />
+      <Profile
+        {...props}
+        profile={props.profile}
+        status={props.status}
+        updateStatus={props.updateStatus}
+      />
     </div>
   );
 };
 const mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
+  status: state.profilePage.status,
 });
 
-let AuthRedirectComponent = withAuthRedirect(Profile);
-
 export default compose(
-  connect(mapStateToProps, { getUserProfile }),
+  connect(mapStateToProps, { getUserProfile, getStatus, updateStatus }),
   withAuthRedirect
 )(ProfileContainer);

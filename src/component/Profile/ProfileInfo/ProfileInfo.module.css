@@ -1,9 +1,13 @@
 .content {
   grid-area: c;
-  background: #2c3646;
+  background: #d0d0d0;
   color: #ffff;
 }
 
 .desBlock {
   padding: 10px;
+}
+.userImg {
+  width: 400px;
+  padding-left: 10px;
 }

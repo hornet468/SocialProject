@@ -3,10 +3,11 @@
   border-radius: 32px;
 }
 .post {
-  background: #e0b34d;
+  display: inline-block;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
   background-size: 100%;
   padding: 10px;
-  width: 100px;
+  width: auto;
   border-radius: 20px;
 }
 .container {
